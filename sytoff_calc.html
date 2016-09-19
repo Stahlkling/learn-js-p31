@@ -1,0 +1,45 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Калькулятор</title>
+<script type="text/javascript">
+N=[1,2,3,4,5,6,7];
+A=["+","-","*","/","+","-"];
+function wr()
+{
+s=N[0];
+for(j=0;j<A.length;j++)
+  {
+    s=s+A[j]+N[j+1];
+  }
+  console.log(s);
+  return s;
+}
+function calc()
+{
+  
+  for(i=0;i<A.length;i++){
+    if (A[i]=="*"){N[i+1]=N[i]*N[i+1];A.splice(i,1);N.splice(i,1);i--;}
+    if (A[i]=="/"){N[i+1]=N[i]/N[i+1];A.splice(i,1);N.splice(i,1);i--;}
+    wr();
+  }
+  for(i=0;i<A.length;i++){
+    if (A[i]=="+"){N[i+1]=N[i]+N[i+1];A.splice(i,1);N.splice(i,1);i--;}
+    if (A[i]=="-"){N[i+1]=N[i]-N[i+1];A.splice(i,1);N.splice(i,1);i--;}
+    wr();
+  }
+  //result.value=N[0];
+  document.getElementById('result').value=N[0];
+}
+</script>
+
+</head>
+<body>
+<input id=result></input>
+<script type="text/javascript">
+  //document.getElementById('result').value=wr();
+  result.value=wr();
+</script>
+<button onClick="calc()">DO</button>
+</body>
+</html>
